@@ -1,0 +1,9 @@
+xonix.res: xonix.rc xonix.h
+	rc -r xonix.rc
+
+xonix.obj: xonix.c xonix.h
+	cl -c -AS -Gsw -Ox -Zp xonix.c
+
+xonix.exe: xonix.obj xonix.def xonix.res
+	link4 xonix,,,slibw,xonix.def
+	rc xonix.res
